@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html data-ng-app = "myApp">
+<head>
+<title>Contact List Application--MEAN Stack</title>
+<!--bootstrap is for better look and feel-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+	<div class="container" data-ng-controller="AppCtrl">
+		<h1>Contact List App</h1>
+			<table class="table">
+				<thead>
+					<tr>
+					<th>Name</th>
+					<th>email</th>
+					<th>Phone No.</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td><input class="form-control" data-ng-model="contact.name"></td>
+					<td><input class="form-control" data-ng-model="contact.email"></td>
+					<td><input class="form-control" data-ng-model="contact.number"></td>
+					<td><button class="btn btn-primary" data-ng-click="addContact()">Add Contact</button></td>
+					<td><button class="btn btn-info" data-ng-click="updateContact()">Update Contact</button>&nbsp;&nbsp;<button class="btn btn-info" data-ng-click="deselect()">Clear </button></td>
+					</tr>
+					<tr data-ng-repeat = "contact in contactlist">
+					<!--like for loop for iterating-->
+					<td>{{contact.name}}</td>
+			`		<td>{{contact.email}}</td>
+					<td>{{contact.number}}</td>
+					<td><button class="btn btn-danger" data-ng-click="deleteContact(contact._id)">Delete Contact</button></td>
+					<td><button class="btn btn-warning" data-ng-click="editContact(contact._id)">Edit Contact</button></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+<!--<input data-ng-model="test">
+{{test}}<!--Angular way of doing 2 way binding-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
